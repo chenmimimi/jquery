@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件冒泡和阻止默认行为</title>
+	<style type="text/css">
+         #content{width:200px;padding:5px 20px;margin-top: 30px;background-color: #ccc;}
+         span{display: block;background-color: yellow;}
+         #msg{background-color: #cfc;width: 240px;}
+	</style>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript">
+	    /*阻止事件冒泡
+         $(function(){
+         	$("span").bind("click",function(event){
+         		var text=$("#msg").html()+"内层span元素被单击了<br/>";
+         		$("#msg").html(text);
+         		event.stopPropagation();
+         	});
+         	$("#content").bind("click",function(event){
+         		var text=$("#msg").html()+"外层div元素被单击了<br/>";
+         		$("#msg").html(text);
+         		event.stopPropagation();
+         	});
+         	$("body").bind("click",function(){
+         		var text=$("#msg").html()+"外层body元素被单击了<br/>";
+         		$("#msg").html(text);
+         	});
+         });
+        */
+        $(function(){
+        	$("#sub").bind("click",function(event){
+        		if($("#username").val()==""){
+        			$("#mag").html("请输入用户名");
+        			event.preventDefault();
+        		}
+        	});
+        });
+
+	</script>
+</head>
+<body>
+	<div id="content">
+		外层div元素
+		<span>内层span元素</span>
+		外层div元素
+	</div>
+	<div id="msg"></div>
+
+	<form action="test.html">
+		用户名：<input type="text" id="username" />
+		<input type="submit" id="sub" />
+	</form>
+	<div id="mag"></div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <style type="text/css">
+        .over{background-color: #ccc;}
+    </style>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript">
+    $(function(){
+    	$("#btn").bind("click",myfunc1=function(){
+    		$("#test").append("<P>我的绑定事件1</p>");
+    	})
+    	        .bind("click",myfunc2=function(){
+    		$("#test").append("<P>我的绑定事件2</p>");
+    	})
+    	       .bind("click",myfunc3=function(){
+    		$("#test").append("<P>我的绑定事件3</p>");
+    	})
+               .bind("myclick",myfunc4=function(){
+            $("#test").append("<p>我的自定义事件</p>");
+               });
+    	$("#btn2").bind("click",function(){
+    		$("#btn").unbind("click",myfunc2);
+    	});
+        $("#btn").click();
+
+        $("#btn").trigger("myclick");
+
+        $("input").trigger("focus");//触发事件，执行默认操作（获取焦点）
+
+        $("input").triggerHandler("focus");//触发事件，不执行默认操作
+
+        $("input").bind("mouseover mouseout",function(){//多个事件用空格隔开
+            $(this).toggleClass("over");
+        });
+ 
+    });
+	</script>
+</head>
+<body>
+	<button id="btn">单击我</button>
+	<button id="btn2">删除第二个绑定事件</button>
+	<div id="test"></div>
+
+    <input type="text" />
+
+</body>
+</html>

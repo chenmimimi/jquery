@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>隔行变色</title>
+	<style type="text/css">
+    table{width:250px;border-collapse:collapse;}
+    thead,tbody{border: 1px solid black;}
+    .odd{background-color: #fff38f;}
+    .even{background-color: #ffffee;}
+    .selected{background-color: #ccc;}
+	</style>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript">
+    $(function(){
+    	$("table tr:odd").addClass("odd");//给奇数行添加样式
+    	$("table tr:even").addClass("even");//给偶数行添加样式
+    	$("table tr:contains('王五')").addClass("selected");//给选中的项添加样式
+    });
+	</script>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr><th>姓名</th><th>性别</th><th>暂住地</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>张三</td><td>男</td><td>湖北</td></tr>
+			<tr><td>张三</td><td>男</td><td>湖北</td></tr>
+			<tr><td>张三</td><td>男</td><td>湖北</td></tr>
+			<tr><td>王五</td><td>男</td><td>湖北</td></tr>
+			<tr><td>张三</td><td>男</td><td>湖北</td></tr>
+			<tr><td>张三</td><td>男</td><td>湖北</td></tr>
+		</tbody>
+	</table>
+</body>
+</html>

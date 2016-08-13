@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+    .msg{width: 200px;border:1px solid black;}
+    span{background-color: #ccc;cursor: pointer;}
+    p{word-break:break-word;font-size: 16px;}
+	</style>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$("span").click(function(){
+			var thisfont=$("p").css("font-Size");
+			var num= parseInt(thisfont,10);
+			var str= thisfont.slice(-2);
+			var sname=$(this).attr("class");
+			if(sname=="smaller"){
+			    num-=2;
+			}
+			if(sname=="bigger"){
+				num+=2;
+			}
+			$("p").css("font-size",num+str);
+		});
+	});
+	</script>
+</head>
+<body>
+	<div class="msg">
+		<div class="msg_caption">
+			<span class="smaller">变小</span>
+			<span class="bigger">变大</span>
+		</div>
+	    <div class="msg_content">
+	    	<p>dfjlfjldfjlksjdfljdldfjldkjfljdsdfljsdlfjsjdflsjdfjsdfljldfjlljfljdflkdjfdklsjfldfdhfeiuroiefkjdfkldjfkldsjflskdjfaldjflksdjfl</p>
+	    </div>
+	</div>
+</body>
+</html>

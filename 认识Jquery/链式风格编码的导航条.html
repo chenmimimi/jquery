@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript" >
+$(document).ready(function(){//等待DOM元素加载完毕
+    $(".level1>a").click(function(){//当单击class="level1"下面的a元素时
+	    $(this).addClass("current")//给当前的a元素添加current类
+	    .next().show()//让a元素的下一个元素显示
+	    .parent().siblings().children("a").removeClass("current")
+	    //让a元素的父极的同类子元素a去除current类
+	    .next().hide();//让a元素的父极的同类子元素a的下一个元素隐藏
+	    return false;
+    });
+});
+	</script>
+	<style type="text/css">
+
+li{
+	list-style-type: none;
+}
+a{  
+	width: 150px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+}
+.level1>a{
+	
+	background-color: yellow;
+}
+.level1{
+	margin-top:5px;
+}
+.level2{
+	display: none;
+	padding-left: 0;
+}
+.current{
+	background-color: gray;
+	color: white;
+}
+	</style>
+
+</head>
+<body>
+	<div class="box">
+		<ul class="menu">
+			<li class="level1">
+				<a href="#none">衬衫</a>
+				<ul class="level2">
+					<li>
+						<a href="#none">短袖衬衫</a>
+					</li>
+					<li>
+						<a href="#none">长袖衬衫</a>
+					</li>
+					<li>
+						<a href="#none">短袖T恤</a>
+					</li>
+				</ul>
+			</li>
+			<li class="level1">
+				<a href="#none">卫衣</a>
+				<ul class="level2">
+					<li>
+						<a href="#none">开襟卫衣</a>
+					</li>
+					<li>
+						<a href="#none">套头卫衣</a>
+					</li>
+					<li>
+						<a href="#none">运动卫衣</a>
+					</li>
+					<li>
+						<a href="#none">童装卫衣</a>
+					</li>
+				</ul>
+			</li>
+			<li class="level1">
+				<a href="#none">裤子</a>
+				<ul class="level2">
+					<li>
+						<a href="#none">短裤</a>
+					</li>
+					<li>
+						<a href="#none">休闲裤</a>
+					</li>
+					<li>
+						<a href="#none">牛仔裤</a>
+					</li>
+					<li>
+						<a href="#none">免烫卡其裤</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

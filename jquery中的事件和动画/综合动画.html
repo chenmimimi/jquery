@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <style type="text/css">
+    #run{
+        width: 100px;
+        height: 100px;
+        position: relative;
+        background-color: #ccc;
+        border: 1px solid #fcc;
+    }
+    </style>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        $("#run").css("opacity","0.5");
+        $("#run").click(function(){
+            $(this).animate({left:"300px",height:"200px",opacity:"1"},3000)
+                   .animate({top:"300px",width:"200px"},3000,function(){
+                    $(this).css("border","5px solid yellow");
+                   })
+                   .fadeOut("slow");
+        });
+    });
+    </script>
+</head>
+<body>
+    <div id="run"></div>
+</body>
+</html>

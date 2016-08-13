@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	form{border:1px solid #ccc;width: 200px;margin: 0 auto;margin-top: 50px;}
+    span{background-color: #ccc;cursor: pointer;}
+	</style>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript">
+    $(function(){
+    	$("span.smaller").click(function(){
+    		if(!$("#commit").is(":animated")){
+    		if($("#commit").height()>100){
+    			$("#commit").animate({height:$("#commit").height()-50},1000);
+    		}
+    	    }
+    	});
+    	$("span.bigger").click(function(){
+    		if(!$("#commit").is(":animated")){
+    		if($("#commit").height()<500){
+    			$("#commit").animate({height:$("#commit").height()+50},1000);
+    		}
+    	    }
+    	});
+    });
+	</script>
+</head>
+<body>
+	<form>
+		<div class="msg">
+			<div class="msg-caption">
+				<span class="smaller">缩小</span>
+				<span class="bigger">放大</span>
+			</div>
+			<div>
+				<textarea id="commit" cols="20" rows="
+				8">多行文本高度变化，多行文本高度变化，多行文本高度变化，多行文本高度变化，多行文本高度变化，多行文本高度变化。</textarea>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

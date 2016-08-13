@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript">
+    $(function(){
+    	/*
+    	$("#btn").bind("click",myfunc1=function(){
+    		$("#test").append("<P>我的绑定事件1</p>");
+    	})
+    	        .bind("click",myfunc2=function(){
+    		$("#test").append("<P>我的绑定事件2</p>");
+    	})
+    	       .bind("click",myfunc3=function(){
+    		$("#test").append("<P>我的绑定事件3</p>");
+    	});
+    	$("#btn2").bind("click",function(){
+    		$("#btn").unbind("click",myfunc2);
+    	});
+        */
+        $("#btn").one("click",myfunc1=function(){
+    		$("#test").append("<P>我的绑定事件1</p>");
+    	})
+    	        .one("click",myfunc2=function(){
+    		$("#test").append("<P>我的绑定事件2</p>");
+    	})
+    	       .one("click",myfunc3=function(){
+    		$("#test").append("<P>我的绑定事件3</p>");
+    	});
+    });
+	</script>
+</head>
+<body>
+	<button id="btn">单击我</button>
+	<button id="btn2">删除第二个绑定事件</button>
+	<div id="test"></div>
+
+</body>
+</html>

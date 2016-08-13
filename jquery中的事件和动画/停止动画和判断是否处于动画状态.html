@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <style type="text/css">
+    #run{
+        width: 100px;
+        height: 100px;
+        position: relative;
+        background-color: #ccc;
+        border: 1px solid #fcc;
+    }
+    </style>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        $("#run").hover(function(){
+        	$(this).stop(true);
+        	$(this).animate({width:"200px",height:"200px"},3000)
+        	       .delay(3000)
+        	       .animate({borderWidth:"10px"},3000);
+        },function(){
+        	$(this).stop(true);
+        	$(this).animate({width:"100px",height:"100px"},3000)
+        	       .animate({borderWidth:"1px"},3000);
+        });
+    });
+    </script>
+</head>
+<body>
+    <div id="run"></div>
+</body>
+</html>

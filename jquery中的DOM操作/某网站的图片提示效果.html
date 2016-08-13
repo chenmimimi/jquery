@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style type="text/css">
+         ul{overflow: hidden;width: 600px;padding:0;margin: 0 auto;margin-top: 50px;}
+         li{float: left;list-style-type: none;}
+         img{width:100px;height:80px;}
+         a{display: block;padding:10px;}
+         #tooltip{position: absolute;}
+         #images{width: 300px;height: 240px;}
+
+	</style>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript">
+         $(function(){
+         	var x=10,y=10;
+         	$("a")
+         	    .mouseover(function(e){
+         	    	this.mytitle=this.title;
+         	    	var div="<div id='tooltip'>"+"<img id='images' src='"+this.href+"' />"+"<p>"+this.mytitle+"</P>"+"</div>";
+         	    	$("body").append(div);
+         	    	$("#tooltip").css({"top":e.pageY+y+"px","left":e.pageX+x+"px"});
+         	    	this.title="";
+
+         	    })
+         	    .mouseout(function(){
+         	    	$("#tooltip").remove();
+         	    	this.title=this.mytitle;
+         	    })
+         	    .mousemove(function(e){
+         	    	$("#tooltip").css({"top":e.pageY+y+"px","left":e.pageX+x+"px"});
+         	    })
+         });
+	</script>
+	<title>某网站对的图片提示效果</title>
+</head>
+<body>
+	<ul>
+		<li><a href="images/sky.jpg" title="this is sky and girl"><img src="images/sky.jpg" alt="this is sky and girl" /></a></li>
+		<li><a href="images/sitting.jpg" title="this is a girl sitting"><img src="images/sitting.jpg" alt="this is a girl sitting" /></a></li>
+		<li><a href="images/sea.jpg" title="this is a girl and sea"><img src="images/sea.jpg" alt="this is a girl and sea" /></a></li>
+		<li><a href="images/stln.jpg" title="this is a beautiful city"><img src="images/stln.jpg" alt="this is a beautiful city" /></a></li>
+		<li><a href="images/flower.jpg" title="this is a beautiful flower"><img src="images/flower.jpg" alt="this is a beautiful flower" /></a></li>
+	</ul>
+</body>
+</html>

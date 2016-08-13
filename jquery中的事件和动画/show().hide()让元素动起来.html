@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bind()方法</title>
+	<style type="text/css">
+        #panel{width:400px;margin:0 auto;margin-top: 40px;}
+        .head{background-color: #ccc;border:1px solid #ccc;height: 30px;line-height: 30px;margin:0;}
+        .content{border:1px solid #ccc;padding:8px;font-size: 14px;display: none;}
+        .highlight{background-color: #ff3300;}
+	</style>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript">
+    $(function(){
+        $(".head").toggle(function(){
+            $(this).next().show(600);
+        },function(){
+            $(this).next().slideUp("normal");
+        });
+    });
+	</script>
+</head>
+<body>
+	<div id="panel">
+		<h5 class="head">什么是Jquery?</h5>
+		<div class="content">
+			Jquery是继承Prototype之后又一个优秀的Javascript库，它是由John Resig创建于2006年1月的开源项目。JqueryP凭借其简洁语法和跨平台的兼容性，极大的简化了Javascript开发人员遍历HTML文档，操作DOM，处理事件，执行动画和开发AJAX。它独特而优雅的代码风格改变了Javascript程序员的设计思路和编写程序的方式。
+		</div>
+	</div>
+</body>
+</html>

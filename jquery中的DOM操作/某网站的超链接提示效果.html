@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>某网站的超链接和图片提示效果</title>
+	<style type="text/css">
+	    body{
+        	margin:0;
+        	padding:40px;
+        	background:#fff;
+        	font:80% Arial, Helvetica, sans-serif;
+        	color:#555;
+        	line-height:180%;
+        }
+        p{
+        	clear:both;
+        	margin:0;
+        	padding:.5em 0;
+        }
+
+        #tooltip{
+        	position:absolute;
+	        border:1px solid #333;
+	        background:#f7f5d1;
+	        padding:1px;
+	        color:#333;
+	        display:none;
+
+        }
+	</style>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript">
+        $(function(){
+        	var x=10,y=10;
+        	$("a.tooltip")
+        	    .mouseover(function(e){
+        	    	this.mytitle=this.title;
+        	    	$(this).removeAttr("title");
+        	    	var $div="<div id='tooltip'>"+this.mytitle+"</div>";
+        	    	$("body").append($div);
+        	    	$("#tooltip")
+        	    	    .css({"top":e.pageY+y+"px","left":e.pageX+x+"px"})
+        	    	    .show("fast");
+            	})
+        	    .mouseout(function(){
+        	    	$(this).attr("title",this.mytitle);
+        	    	$("#tooltip").remove();
+        	    })
+        	    .mousemove(function(e){
+        	    	$("#tooltip")
+        	    	    .css({"top":e.pageY+y+"px","left":e.pageX+x+"px"})
+        	    	    .show("fast");
+        	    });
+        });
+	</script>
+</head>
+<body>
+	<p><a href="#" class="tooltip" title="这是我的超链接提示1">提示1</a></p>
+	<p><a href="#" class="tooltip" title="这是我的超链接提示1">提示2</a></p>
+	<p><a href="#" title="这是自带的提示1">提示1</a></p>
+	<p><a href="#" title="这是自带的提示2">提示2</a></p>
+</body>
+</html>

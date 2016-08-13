@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{margin:0;padding:0;}
+	.tab{width: 300px;margin: 0 auto;margin-top: 30px;border: 1px solid #ccc;padding:10px;}
+	ul{overflow: hidden;}
+	li{float: left;list-style-type: none;width:50px;background-color: #ccc;margin-right: 20px;cursor: pointer;}
+	.tab_box{min-height:100px;max-height:120px;overflow:auto;margin-top: 10px;padding:5px;border: 1px solid #ccc;}
+	.hide{display: none;}
+	.active{background-color: yellow;}
+	</style>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$(".tab_menu li").click(function(){
+			var index=$(".tab_menu li").index(this);
+			$(this).addClass("active")
+			       .siblings().removeClass("active");
+			$(".tab_box>div").eq(index).show()
+			                 .siblings().hide();
+		})
+		.hover(function(){
+			$(this).addClass("active");
+		},function(){
+			$(this).removeClass("active");
+		});
+	});
+	</script>
+</head>
+<body>
+	<div class="tab">
+		<div class="tab_menu">
+			<ul>
+				<li class="active">时事</li>
+				<li>体育</li>
+				<li>娱乐</li>
+			</ul>
+		</div>
+		<div class="tab_box">
+			<div>时事</div>
+			<div class="hide">体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育体育</div>
+			<div class="hide">娱乐</div>
+		</div>
+	</div>
+</body>
+</html>

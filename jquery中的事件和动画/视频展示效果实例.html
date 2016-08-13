@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画</title>
+	<style type="text/css">
+	*{margin:0;padding:0;}
+	#slideshow{border:1px solid #ccc;width: 560px;border-radius: 6px 6px 0 0;margin:0 auto;margin-top: 50px;}
+	#slidetop{background-color: #ccc;overflow: hidden;}
+	#slidetop a{float: right;font-size: 12px;line-height:36px;padding-right: 10px;}
+	#slidetop div{float: left;margin-left: 10px;}
+	.highlight span{float:left;display:block;width: 10px;height: 10px;border-radius: 50%;background-color: #fff;margin-left: 5px;margin-top: 12px;}
+	.page{width: 60px;height: 20px;border-radius: 5px;border: 1px solid #000;margin-top: 8px;}
+	.page span{width: 50%;height: 100%;display: inline-block;cursor: pointer;}
+	.page b{display: block;margin-top: 4px;width:0;height:0;}
+	.page span:nth-child(1) b{border-top:6px solid transparent;border-left:10px solid transparent;border-right:10px solid #000;border-bottom:6px solid transparent;}
+	.page span:nth-child(2) b{border-top:6px solid transparent;border-right:10px solid transparent;border-left:10px solid #000;border-bottom:6px solid transparent;margin-left: 10px;}
+	.page span:nth-child(1){border-right: 1px solid #000;margin-right: -1px;}
+	h1{float:left;font-size: 1em;font-weight: bold;line-height: 36px;padding-left: 10px;}
+	#slidecontent{height: 142px;overflow: hidden;padding-top: 
+		20px;}
+	#slidecontent div{width: 3000px;position: relative;float: left;left:0;top:0;}
+	ul{float: left;}
+	li{float: left;padding:0 10px;list-style-type: none;}
+    img{width:120px;height: 100px;}
+    a{display: block;text-decoration: none;}
+    p{padding-top: 3px;}
+    .highlight .active{background-color: yellow;}
+	</style>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript">
+    $(function(){
+    	var dis=$("#slidecontent").width();//可见框的宽度
+    	var linum=$("#slidecontent li").length;//li的个数
+    	var itemwidth=$("#slidecontent li").width();//li的宽度
+    	var lpages=Math.ceil(linum*itemwidth/dis);//最多的版数
+    	var pages=1;
+    	$(".page span").click(function(){
+    		if($(this).is(".right")){
+    		    pages++;
+    		    if(pages>lpages){
+    	        	$("#slidecontent div").animate({left:0},500);
+    		        pages=1;	
+    		    }
+    		    else{
+    		        $("#slidecontent div").animate({left:-dis*(pages-1)},500);
+    	            }
+    	    }
+    	    else{
+    		    pages--;
+    		    if(pages<1){
+    	        	$("#slidecontent div").animate({left:-dis*(lpages-1)},500);
+    	        	pages=lpages;
+    		    }
+    		    else{
+    		        $("#slidecontent div").animate({left:-dis*(pages-1)},500);
+    		    }      
+    	    }
+    	$(".highlight span").eq(pages-1).addClass("active")
+    	                            .siblings().removeClass("active");
+    	});
+    });
+	</script>
+</head>
+<body>
+	<div id="slideshow">
+		<div id="slidetop">
+			<h1>卡通动漫</h1>
+			<div class="highlight"><span class="active"></span><span></span><span></span><span></span></div>
+			<div class="page"><span class="left"><b></b></span><span class="right"><b></b></span></div>
+			<a href="#">更多>></a>
+		</div>
+		<div id="slidecontent">
+			<div>
+				<ul>
+					<li>
+						<img src="images/sitting.jpg" />
+						<a href="#">sitting</a>
+						<p>播放<span>57865</span></p>
+					</li>
+					<li>
+						<img src="images/flower.jpg" />
+						<a href="#">flower</a>
+						<p>播放<span>57865</span></p>
+					</li>
+					<li>
+						<img src="images/sea.jpg" />
+						<a href="#">sesa</a>
+						<p>播放<span>57865</span></p>
+					</li>
+					<li>
+						<img src="images/sky.jpg" />
+						<a href="#">sky</a>
+						<p>播放<span>57865</span></p>
+					</li>
+					<li>
+						<img src="images/stln.jpg" />
+						<a href="#">stln</a>
+						<p>播放<span>57865</span></p>
+					</li>
+					<li>
+						<img src="images/sitting.jpg" />
+						<a href="#">sitting</a>
+						<p>播放<span>57865</span></p>
+					</li>
+					<li>
+						<img src="images/flower.jpg" />
+						<a href="#">flower</a>
+						<p>播放<span>57865</span></p>
+					</li>
+					<li>
+						<img src="images/sea.jpg" />
+						<a href="#">sea</a>
+						<p>播放<span>57865</span></p>
+					</li>
+					<li>
+						<img src="images/sky.jpg" />
+						<a href="#">sky</a>
+						<p>播放<span>57865</span></p>
+					</li>
+					<li>
+						<img src="images/stln.jpg" />
+						<a href="#">stln</a>
+						<p>播放<span>57865</span></p>
+					</li>
+					<li>
+						<img src="images/flower.jpg" />
+						<a href="#">flower</a>
+						<p>播放<span>57865</span></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

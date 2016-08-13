@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画</title>
+	<style type="text/css">
+    #run{
+    	width: 100px;
+    	height: 100px;
+    	position: relative;
+    	background-color: #ccc;
+    	border: 1px solid #fcc;
+    }
+	</style>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$("#run").click(function(){
+			$(this).animate({left:"100px"},3000);
+		});
+	});
+	</script>
+</head>
+<body>
+	<div id="run"></div>
+</body>
+</html>

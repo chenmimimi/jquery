@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bind()方法</title>
+	<style type="text/css">
+        #panel{width:400px;margin:0 auto;margin-top: 40px;}
+        .head{background-color: #ccc;border:1px solid #ccc;height: 30px;line-height: 30px;margin:0;}
+        .content{border:1px solid #ccc;padding:8px;font-size: 14px;display: none;}
+        .highlight{background-color: #ff3300;}
+	</style>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript">
+	/*bind()方法-绑定多个事件
+        $(function(){
+        	var content=$(".head").next();
+        	$(".head").bind("click",function(){
+        		if(content.is(":visible")){
+        		content.hide();
+        	    } 
+        	    else{
+        		content.show();	
+        	    }
+        	});
+        	$(".head").bind("mouseover",function(){
+        		content.show();
+        	})
+        	           .bind("mouseout",function(){
+        	           	content.hide();
+        	           })
+        });
+     */
+     /*简写绑定形式
+        $(function(){
+        	var content=$(".head").next();
+        	$(".head").click(function(){
+        		if(content.is(":visible")){
+        		content.hide();
+        	    } 
+        	    else{
+        		content.show();	
+        	    }
+        	});
+        	$(".head").mouseover(function(){
+        		content.show();
+        	})
+        	           .mouseout(function(){
+        	           	content.hide();
+        	           })
+        });
+     */
+    $(function(){
+    	/*hover()方法-鼠标移入移出
+    	$(".head").hover(function(){
+    		$(this).next().toggle();
+    	},function(){
+    		$(this).next().toggle();
+    	});*/
+        /*toggle()方法-连续单击*/
+    	$(".head").toggle(function(){
+    		$(this).next().toggle();
+    		$(this).addClass("highlight");
+    	},function(){
+    		$(this).next().toggle();
+    		$(this).removeClass("highlight");
+    	})
+    });
+
+
+	</script>
+</head>
+<body>
+	<div id="panel">
+		<h5 class="head">什么是Jquery?</h5>
+		<div class="content">
+			Jquery是继承Prototype之后又一个优秀的Javascript库，它是由John Resig创建于2006年1月的开源项目。JqueryP凭借其简洁语法和跨平台的兼容性，极大的简化了Javascript开发人员遍历HTML文档，操作DOM，处理事件，执行动画和开发AJAX。它独特而优雅的代码风格改变了Javascript程序员的设计思路和编写程序的方式。
+		</div>
+	</div>
+</body>
+</html>
